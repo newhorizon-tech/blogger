@@ -4,6 +4,11 @@
  <%= link_to tag.name, tag_path(tag) %>
 <% end %>
 </p>
+<p>
+  <% if @article.image.attached? %>
+  <img src="<%= (url_for(@article.image)) %>" >
+ <% end %>
+</p>
 <p><%= @article.body %></p>
 <%= link_to "edit", edit_article_path(@article) %>
 <%= link_to "delete", article_path(@article), data: {confirm: "Really delete the article?"}, method: :delete %>
