@@ -2,7 +2,7 @@ class Article < ApplicationRecord
     has_many :comments, :dependent => :delete_all
     has_many :taggings
     has_many :tags, through: :taggings
-    has_one_attached :image
+    has_one_attached :image, dependent: :purge
     def tag_list
       tags.join(', ')
     end
